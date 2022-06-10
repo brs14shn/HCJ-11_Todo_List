@@ -23,8 +23,8 @@ addBtn.addEventListener("click",()=>{
 
   //* capturing 
 myTodos.onclick=function(event){
-    console.log(event.target);
-    if(event.target.className=="fa solid fa check fa-lg"){
+   
+    if(event.target.className=="fa-solid fa-check fa-lg"){
         event.target.nextElementSibling.classList.toggle("line-through");
       }
 
