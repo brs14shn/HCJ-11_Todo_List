@@ -54,3 +54,16 @@ input.addEventListener('keydown', (event)=>{
 
 
   //task status
+
+
+  //date
+
+  const date  = new Date();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const datedays=days[date.getDay()];
+  const yil=date.getFullYear();    
+  const ay=date.getMonth()+1;
+  const gun=date.getDate();
+  const fullyear=`${yil}/${ay}/${gun}`
+  
+  document.querySelector(".date").innerText=`${datedays}-${fullyear}`;
