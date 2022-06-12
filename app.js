@@ -15,17 +15,19 @@ addBtn.addEventListener("click",()=>{
   
     else{
       myTodos.innerHTML+=`<li class="task"><i class="fa-solid fa-check fa-lg"></i><span class="content">${input.value}</span><i class="fa-solid fa-trash"></i></li>`
+      input.value=""
   
     }
   })
 
 
 
-  //* capturing 
+  //* capturing *//
 myTodos.onclick=function(event){
    
     if(event.target.className=="fa-solid fa-check fa-lg"){
         event.target.nextElementSibling.classList.toggle("line-through");
+        event.target.style.color="green"
       }
       else if (event.target.classList.contains("fa-trash")) {
     
