@@ -20,8 +20,6 @@ addBtn.addEventListener("click",()=>{
     }
   })
 
-
-
   //* capturing *//
 myTodos.onclick=function(event){
    
@@ -43,7 +41,6 @@ myTodos.onclick=function(event){
 
 }
 
-
 //enter btn
 input.addEventListener('keydown', (event)=>{
     if (event.key == 'Enter'){
@@ -56,6 +53,18 @@ input.addEventListener('keydown', (event)=>{
 
 
   //task status
+
+  
+ let completed=0;
+ let notCompleted=0;
+ const lineThrough=document.querySelector(".content");
+ if(taskStatus.classList("line-through")){
+  
+ }
+
+
+
+
 
 
   //date

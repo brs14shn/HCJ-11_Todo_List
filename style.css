@@ -125,3 +125,15 @@
 .line-through{
   text-decoration: line-through;
 }
+
+
+section{
+  
+  
+    text-align: center;
+    border-top: 3px solid #6b4a33;
+    color: brown;
+    text-shadow: 1px 1px rgb(156, 155, 155);
+    width: 30rem;
+    margin: 0 auto;
+}
