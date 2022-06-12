@@ -56,16 +56,18 @@ input.addEventListener('keydown', (event)=>{
 
   
  let completed=0;
- let liLength=document.querySelectorAll(".task").length
+ let liLength=document.querySelector(".task").length
  
  const lineThrough=document.querySelectorAll(".content");
- lineThrough.forEach((v)=>{
-  v.classList,contains("line-through") && completed++; 
-  document.querySelector(".todo_status").innerText=`${completed} OUT OF ${liLength} TASKS COMPLETED`;
- 
 
+ lineThrough.forEach((v)=>{
+  console.log(v);
+  console.log(v);
+  v.classList.contains("line-through") && completed++; 
+  
   }
  )
+ document.querySelector(".todo_status").innerText=`${completed} OUT OF ${liLength} TASKS COMPLETED`;
 
 
   /*document.querySelector(".todo_status").innerText=`${completed} OUT OF ${completed+notCompleted} TASKS COMPLETED`;
