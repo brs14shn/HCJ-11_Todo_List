@@ -65,6 +65,26 @@ input.addEventListener('keydown', (event)=>{
         addBtn.click();
     }
   })
+//filter
+  input.addEventListener('keyup',filterTodos);
+  
+  function filterTodos(e){
+    const filterValue=e.target.value.toLowerCase();
+    const liItem=document.querySelectorAll(".task");
+    liItem.forEach(function(liItem){
+      const text=liItem.textContent.toLowerCase();
+      if(text.indexOf(filterValue)==-1){
+        //BULAMADI
+        liItem.setAttribute("style","display:none")
+
+      }else{
+        liItem.setAttribute("style","display:block")
+      }
+
+    })
+   //console.log(e.target.value)
+  }
+
 
 
 
