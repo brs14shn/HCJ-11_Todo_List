@@ -40,7 +40,8 @@ myTodos.onclick=function(event){
    
     if(event.target.className=="fa-solid fa-check fa-lg"){
         event.target.nextElementSibling.classList.toggle("line-through");
-        event.target.style.color="green"
+        event.target.style.color="white" 
+        event.target.parentElement.style.backgroundColor="green"
         todoCompleted()
       }
       else if (event.target.classList.contains("fa-trash")) {
