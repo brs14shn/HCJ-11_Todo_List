@@ -1,5 +1,19 @@
 
 
+
+//date
+const date  = new Date();
+let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const datedays=days[date.getDay()];
+const yil=date.getFullYear();    
+const ay=date.getMonth()+1;
+const gun=date.getDate();
+const fullyear=`${yil}/${ay}/${gun}`
+
+document.querySelector(".date").innerText=`${datedays}-${fullyear}`;
+
+
+
 //*selector
 const addBtn=document.querySelector(".addBtn");
 let input=document.querySelector("#myInput");
@@ -26,12 +40,14 @@ myTodos.onclick=function(event){
     if(event.target.className=="fa-solid fa-check fa-lg"){
         event.target.nextElementSibling.classList.toggle("line-through");
         event.target.style.color="green"
+        taskCounter()
       }
       else if (event.target.classList.contains("fa-trash")) {
     
         if(event.target.previousElementSibling.classList.contains("line-through")){
           //console.log(event.target);
         event.target.closest(".task").remove();
+        taskCounter()
         }
         else{
             alert("Task not completed")
@@ -49,44 +65,14 @@ input.addEventListener('keydown', (event)=>{
   })
 
 
-  //edit btn
+  
 
 
-  //task status
+
 
   
- let completed=0;
- let liLength=document.querySelector(".task").length
- 
- const lineThrough=document.querySelectorAll(".content");
 
- lineThrough.forEach((v)=>{
-  console.log(v);
-  console.log(v);
-  v.classList.contains("line-through") && completed++; 
+
+
+
   
-  }
- )
- document.querySelector(".todo_status").innerText=`${completed} OUT OF ${liLength} TASKS COMPLETED`;
-
-
-  /*document.querySelector(".todo_status").innerText=`${completed} OUT OF ${completed+notCompleted} TASKS COMPLETED`;
-  
- }*/
-
-
-
-
-
-
-  //date
-
-  const date  = new Date();
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  const datedays=days[date.getDay()];
-  const yil=date.getFullYear();    
-  const ay=date.getMonth()+1;
-  const gun=date.getDate();
-  const fullyear=`${yil}/${ay}/${gun}`
-  
-  document.querySelector(".date").innerText=`${datedays}-${fullyear}`;
