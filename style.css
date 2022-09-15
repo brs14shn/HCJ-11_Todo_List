@@ -128,8 +128,6 @@
 
 
 section{
-  
-  
     text-align: center;
     border-top: 3px solid #6b4a33;
     color: brown;
@@ -137,3 +135,14 @@ section{
     width: 30rem;
     margin: 0 auto;
 }
+
+.message{
+    display: inline-block;
+    margin: 0px auto;
+    position: fixed;
+    transition: all 0.5s ease-in-out 0s;
+    z-index: 1031;
+    top: 75px;
+    right: 10px;
+    max-width: max-content;
+  }

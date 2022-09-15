@@ -18,6 +18,10 @@ document.querySelector(".date").innerText=`${datedays}-${fullyear}`;
 const addBtn=document.querySelector(".addBtn");
 let input=document.querySelector("#myInput");
 const myTodos=document.querySelector("#mytodos");
+// const message=document.querySelector(".message")
+
+
+
 
 
 
@@ -25,12 +29,15 @@ const myTodos=document.querySelector("#mytodos");
 //* add btn click
 addBtn.addEventListener("click",()=>{
     if(input.value==""){
-    alert("Please enter your a task")}
+      // message.innerText="Please enter your a task"
+      alert("Please enter your a task")
+    }
   
     else{
       myTodos.innerHTML+=`<li class="task"><i class="fa-solid fa-check fa-lg"></i><span class="content">${input.value}</span><i class="fa-solid fa-trash"></i></li>`
       input.value=""
       todoCompleted()
+     
   
     }
   })
@@ -43,6 +50,7 @@ myTodos.onclick=function(event){
         event.target.style.color="white" 
         event.target.parentElement.style.backgroundColor="green"
         todoCompleted()
+        filterTodos()
       }
       else if (event.target.classList.contains("fa-trash")) {
     
@@ -50,6 +58,7 @@ myTodos.onclick=function(event){
           //console.log(event.target);
         event.target.closest(".task").remove();
         todoCompleted()
+        filterTodos()
         }
         else{
             alert("Task not completed")
@@ -68,23 +77,22 @@ input.addEventListener('keydown', (event)=>{
 //filter
   input.addEventListener('keyup',filterTodos);
   
-  function filterTodos(e){
-    const filterValue=e.target.value.toLowerCase();
-    const liItem=document.querySelectorAll(".task");
-    liItem.forEach(function(liItem){
-      const text=liItem.textContent.toLowerCase();
-      if(text.indexOf(filterValue)==-1){
-        //BULAMADI
-        liItem.setAttribute("style","display:none")
+  // function filterTodos(e){
+  //   const filterValue=e.target.value.toLowerCase();
+  //   const liItem=document.querySelectorAll(".task");
+  //   liItem.forEach(function(liItem){
+  //     const text=liItem.textContent.toLowerCase();
+  //     if(text.indexOf(filterValue)==-1){
+  //       //BULAMADI
+  //       liItem.setAttribute("style","display:none")
 
-      }else{
-        liItem.setAttribute("style","display:block")
-      }
+  //     }else{
+  //       liItem.setAttribute("style","display:block")
+  //     }
 
-    })
-   //console.log(e.target.value)
-  }
-
+  //   })
+  //  //console.log(e.target.value)
+  // }
 
 
 
