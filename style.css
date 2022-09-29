@@ -87,6 +87,7 @@
     font-size: 18px;
     transition: 0.2s;
     user-select: none;
+    margin-bottom: 1rem;
   }
 
   ul li:nth-child(odd) {
@@ -137,12 +138,14 @@ section{
 }
 
 .message{
-    display: inline-block;
-    margin: 0px auto;
-    position: fixed;
-    transition: all 0.5s ease-in-out 0s;
-    z-index: 1031;
-    top: 75px;
-    right: 10px;
-    max-width: max-content;
-  }
+  color:white;
+  background-color:red;
+  font-size: 1.5rem;
+  text-align:center;
+  z-index:1;  
+  position: absolute;
+  top:0;
+  left:0;
+  margin-left:38rem ;
+  
+}

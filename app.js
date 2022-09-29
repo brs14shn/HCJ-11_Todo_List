@@ -1,40 +1,38 @@
 
 
 
-//date
-const date  = new Date();
-let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-const datedays=days[date.getDay()];
-const yil=date.getFullYear();    
-const ay=date.getMonth()+1;
-const gun=date.getDate();
-const fullyear=`${yil}/${ay}/${gun}`
-
-document.querySelector(".date").innerText=`${datedays}-${fullyear}`;
-
-
-
-//*selector
+//?=========================================================
+//************************SELECTOR************************ */
+//?===========================================================
 const addBtn=document.querySelector(".addBtn");
 let input=document.querySelector("#myInput");
 const myTodos=document.querySelector("#mytodos");
-// const message=document.querySelector(".message")
+const message=document.querySelector(".message")
+
+
+const setTime=()=>{
+  setTimeout(function () {
+    message.style.display = 'none';
+    },3000);
+    message.style="display:block"
+}
 
 
 
 
+//?=========================================================
+//************************ADD BUTTON************************ */
+//?===========================================================
 
-
-
-//* add btn click
 addBtn.addEventListener("click",()=>{
     if(input.value==""){
-      // message.innerText="Please enter your a task"
-      alert("Please enter your a task")
+      message.innerHTML=`Please enter your task`
+      setTime()
     }
   
     else{
       myTodos.innerHTML+=`<li class="task"><i class="fa-solid fa-check fa-lg"></i><span class="content">${input.value}</span><i class="fa-solid fa-trash"></i></li>`
+      setTime()
       input.value=""
       todoCompleted()
      
@@ -42,9 +40,14 @@ addBtn.addEventListener("click",()=>{
     }
   })
 
-  //* capturing *//
+//TODO=========================================================
+//************************CAPTURİNG************************ 
+//TODO===========================================================
+//! Click event tüm childlara sahip oldu
 myTodos.onclick=function(event){
-   
+   //console.log("Tıklandı")
+  //console.log(e.target);
+  //* className tüm classları kontrol eder 👇 | classList birisi tanımlamak yeterli
     if(event.target.className=="fa-solid fa-check fa-lg"){
         event.target.nextElementSibling.classList.toggle("line-through");
         event.target.style.color="white" 
@@ -57,18 +60,24 @@ myTodos.onclick=function(event){
         if(event.target.previousElementSibling.classList.contains("line-through")){
           //console.log(event.target);
         event.target.closest(".task").remove();
+        message.innerHTML="Task succesfully deleted"
+        setTime()
         todoCompleted()
         filterTodos()
         }
         else{
-            alert("Task not completed")
+          message.innerHTML="Task not completed..."
+          setTime()
         }
     
     }
 
 }
 
-//enter btn
+//?=========================================================
+//************************ENTER BUTTON************************ 
+//?===========================================================
+
 input.addEventListener('keydown', (event)=>{
     if (event.key == 'Enter'){
         addBtn.click();
@@ -94,7 +103,9 @@ input.addEventListener('keydown', (event)=>{
   //  //console.log(e.target.value)
   // }
 
-
+//?=========================================================
+//************************TASK STATUS**********************
+//?===========================================================
 
 function todoCompleted(){
 let completed=0;
@@ -109,7 +120,18 @@ const span=document.querySelectorAll(".task span").forEach((v)=>{
 todo_status.innerText = `${completed} OUT OF ${totalTasks} TASKS COMPLETED`;
 }
 
+//?=========================================================
+//************************DATE************************ */
+//?===========================================================
+const date  = new Date();
+let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const datedays=days[date.getDay()];
+const yil=date.getFullYear();    
+const ay=date.getMonth()+1;
+const gun=date.getDate();
+const fullyear=`${yil}/${ay}/${gun}`
 
+document.querySelector(".date").innerText=`${datedays}-${fullyear}`;
 
 
 
